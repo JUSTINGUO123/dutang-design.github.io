@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>张掖山海泊啤汇 · 高级素雅空间设计方案</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
+    
+    <!-- 严格保留V4版本配色（不变） -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#8B7355',       // 浅橡木色
+                        secondary: '#D2B48C',     // 棕褐色
+                        accent: '#A67C3D',        // 赭石色
+                        light: '#F5F5DC',         // 米白色
+                        dark: '#3E3E2E',          // 深棕色
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); }
+            .transition-custom { transition: all 0.4s ease; }
+            .material-img { width:100%; height:140px; object-fit:cover; border-radius:4px; margin:0.75rem 0; box-shadow:0 2px 4px rgba(0,0,0,0.1); }
+            .concept-img { width:100%; height:220px; object-fit:cover; transition:transform 0.4s ease; }
+            .concept-img:hover { transform:scale(1.05); }
+            .summary-img { width:100%; height:200px; object-fit:cover; border-radius:4px; margin-bottom:1rem; box-shadow:0 3px 6px rgba(0,0,0,0.15); }
+            .feature-card { background:#fff; border-radius:8px; box-shadow:0 4px 6px rgba(0,0,0,0.05); transition:transform 0.3s ease; }
+            .feature-card:hover { transform:translateY(-5px); }
+        }
+    </style>
+</head>
+<body class="bg-light bg-[url('data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%238B7355' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E')] text-dark">
+    <!-- 导航栏（完全保留V4布局） -->
+    <nav id="navbar" class="fixed w-full bg-dark/90 text-light z-50 transition-custom">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="text-xl font-bold text-secondary">
+                <i class="fa fa-map-marker mr-2"></i>山海泊啤汇
+            </div>
+            <div class="hidden md:flex space-x-6">
+                <a href="#overview" class="hover:text-secondary transition-custom">项目概述</a>
+                <a href="#concept" class="hover:text-secondary transition-custom">设计理念</a>
+                <a href="#space" class="hover:text-secondary transition-custom">空间规划</a>
+                <a href="#materials" class="hover:text-secondary transition-custom">材质色彩</a>
+                <a href="#experience" class="hover:text-secondary transition-custom">体验细节</a>
+                <a href="#summary" class="hover:text-secondary transition-custom">效果总结</a>
+            </div>
+            <button id="mobile-menu-btn" class="md:hidden text-light text-xl">
+                <i class="fa fa-bars"></i>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-dark/95 px-4 py-2">
+            <div class="flex flex-col space-y-3 py-3">
+                <a href="#overview" class="hover:text-secondary transition-custom">项目概述</a>
+                <a href="#concept" class="hover:text-secondary transition-custom">设计理念</a>
+                <a href="#space" class="hover:text-secondary transition-custom">空间规划</a>
+                <a href="#materials" class="hover:text-secondary transition-custom">材质色彩</a>
+                <a href="#experience" class="hover:text-secondary transition-custom">体验细节</a>
+                <a href="#summary" class="hover:text-secondary transition-custom">效果总结</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 封面（保留V4风格，用西北质感图） -->
+    <header class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 bg-dark/50 z-10"></div>
+        <div class="absolute inset-0 z-0">
+            <img src="https://i.ibb.co/vgghzRq/1.jpg" alt="西北在地文化封面" class="w-full h-full object-cover">
+        </div>
+        <div class="container mx-auto px-4 z-20 text-center text-light">
+            <h1 class="text-[clamp(2rem,5vw,4rem)] font-bold mb-6 text-shadow">张掖山海泊啤汇</h1>
+            <h2 class="text-[clamp(1.2rem,3vw,2rem)] mb-8 text-shadow">高级素雅餐饮空间</h2>
+            <p class="text-[clamp(1rem,2vw,1.2rem)] max-w-2xl mx-auto text-light/90 mb-12">西北在地文化 · 全天候多时段经营（下午茶/私厨/静吧/单人演出）</p>
+            <a href="#overview" class="bg-accent hover:bg-accent/80 text-white px-8 py-3 rounded transition-custom inline-block">
+                开始浏览 <i class="fa fa-arrow-down ml-2"></i>
+            </a>
+        </div>
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-light z-20 animate-bounce">
+            <i class="fa fa-angle-double-down text-2xl"></i>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-16">
+        <!-- 项目概述（调换下午茶/私厨位置，静吧时间19:00-24:00） -->
+        <section id="overview" class="mb-24 scroll-mt-20">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold">项目核心定位</h2>
+                <div class="h-1.5 w-24 bg-accent my-4"></div>
+                
+                <!-- 核心经营需求（已调换下午茶/私厨位置） -->
+                <div class="bg-white p-8 rounded-lg shadow-lg mb-12">
+                    <h3 class="text-xl font-semibold text-primary mb-4">核心经营与体验需求</h3>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div class="border-l-4 border-accent pl-4">
+                            <h4 class="font-semibold mb-2">私厨接待</h4>
+                            <p class="text-dark/80">11:00-14:00，2-8人私密聚餐</p>
+                        </div>
+                        <div class="border-l-4 border-accent pl-4">
+                            <h4 class="font-semibold mb-2">下午茶时光</h4>
+                            <p class="text-dark/80">14:30-17:00，2-4人休闲小憩</p>
+                        </div>
+                        <div class="border-l-4 border-accent pl-4">
+                            <h4 class="font-semibold mb-2">休闲静吧</h4>
+                            <p class="text-dark/80">19:00-24:00，单人/小聚轻社交</p>
+                        </div>
+                        <div class="border-l-4 border-accent pl-4">
+                            <h4 class="font-semibold mb-2">单人演出</h4>
+                            <p class="text-dark/80">18:00-19:00，低干扰观赏体验</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 定位差异（嵌入清晰图片，对比西北主题） -->
+                <div class="bg-white p-8 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-semibold text-primary mb-4">定位差异（西北在地文化vs传统）</h3>
+                    <div class="overflow-x-auto">
+                        <table class="w-full border-collapse">
+                            <thead>
+                                <tr class="bg-primary/10">
+                                    <th class="p-3 text-left border-b border-primary/20">对比维度</th>
+                                    <th class="p-3 text-left border-b border-primary/20">传统西北主题店</th>
+                                    <th class="p-3 text-left border-b border-primary/20">本项目设计</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="hover:bg-light/50">
+                                    <td class="p-3 border-b border-primary/10">元素表达</td>
+                                    <td class="p-3 border-b border-primary/10">
+                                        具象符号堆砌（羊皮筏/毡房）
+                                        <img src="https://i.ibb.co/ymbCmxnC/3-Dezeen-Official.jpg" alt="传统西北元素" class="material-img">
+                                    </td>
+                                    <td class="p-3 border-b border-primary/10">
+                                        抽象地貌轮廓（微弧线+莱姆石）
+                                        <img src="https://i.ibb.co/k61RBLQS/1.jpg" alt="抽象西北元素" class="material-img">
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-light/50">
+                                    <td class="p-3 border-b border-primary/10">声学设计</td>
+                                    <td class="p-3 border-b border-primary/10">
+                                        无处理，环境嘈杂
+                                        <img src="https://i.ibb.co/dw9K9jMn/2.jpg" alt="嘈杂环境" class="material-img">
+                                    </td>
+                                    <td class="p-3 border-b border-primary/10">
+                                        墙面吸音+地面静音
+                                        <img src="https://i.ibb.co/JF2FX977/20250908135928.jpg" alt="声学优化" class="material-img">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 设计理念（放大意向图，西北在地文化） -->
+        <section id="concept" class="mb-24 scroll-mt-20">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold">设计理念：西北在地文化基因转化</h2>
+                <div class="h-1.5 w-24 bg-accent my-4"></div>
+                
+                <!-- 三大核心理念（放大图片，清晰可见） -->
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                        <img src="https://i.ibb.co/LV6QfWc/20250908135927.jpg" alt="高原轮廓设计" class="concept-img">
+                        <div class="p-6">
+                            <h3 class="text-lg font-semibold text-primary mb-3">高原轮廓</h3>
+                            <p class="text-dark/80">墙面/吊顶用“半径≥5m微弧线”收边，包厢15cm圆角，无尖锐感，呼应黄土高原起伏形态。</p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                        <img src="https://i.ibb.co/vvB1MXvf/cover-jpg.jpg" alt="丹霞质感设计" class="concept-img">
+                        <div class="p-6">
+                            <h3 class="text-lg font-semibold text-primary mb-3">丹霞质感</h3>
+                            <p class="text-dark/80">1.8m×0.9m莱姆石通铺（1mm细缝），局部嵌浅灰毛石（≤30%墙面），模拟丹霞地貌肌理。</p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                        <img src="https://i.ibb.co/JF2FX977/20250908135928.jpg" alt="戈壁光影设计" class="concept-img">
+                        <div class="p-6">
+                            <h3 class="text-lg font-semibold text-primary mb-3">戈壁光影</h3>
+                            <p class="text-dark/80">隐藏漫反射光源+3000K暖光小吊灯，10级亮度调节，模拟西北昼夜光线变化，适配多时段。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 空间规划（嵌入空间图，保留V4布局） -->
+        <section id="space" class="mb-24 scroll-mt-20">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold">分区域空间规划</h2>
+                <div class="h-1.5 w-24 bg-accent my-4"></div>
+                
+                <!-- 入口前厅 -->
+                <div class="mb-16">
+                    <h3 class="text-2xl font-semibold text-primary mb-6">入口前厅：第一眼“静奢感”</h3>
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <img src="https://i.ibb.co/vvB1MXvf/cover-jpg.jpg" alt="入口前厅效果" class="w-full h-auto rounded-lg shadow-lg">
+                        <div class="bg-white p-6 rounded-lg shadow-lg">
+                            <h4 class="font-semibold text-lg mb-3">20㎡三段式设计</h4>
+                            <ul class="space-y-4">
+                                <li class="flex items-start"><i class="fa fa-check-circle text-accent mt-1 mr-3"></i><span>入口区：超白玻璃+浅橡木格栅（间距5cm）</span></li>
+                                <li class="flex items-start"><i class="fa fa-check-circle text-accent mt-1 mr-3"></i><span>过渡区：莱姆石通铺（1.8m×0.9m，1mm细缝）</span></li>
+                                <li class="flex items-start"><i class="fa fa-check-circle text-accent mt-1 mr-3"></i><span>接待区：微弧浅橡木接待台（无雕花）</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 主厅 -->
+                <div class="mb-16">
+                    <h3 class="text-2xl font-semibold text-primary mb-6">主厅：通透无割裂</h3>
+                    <div class="grid md:grid-cols-2 gap-8 items-center md:flex-row-reverse">
+                        <img src="https://i.ibb.co/23d2N5Pp/202509081359371.jpg" alt="主厅效果" class="w-full h-auto rounded-lg shadow-lg">
+                        <div class="bg-white p-6 rounded-lg shadow-lg">
+                            <h4 class="font-semibold text-lg mb-3">布局特点</h4>
+                            <ul class="space-y-4">
+                                <li class="flex items-start"><i class="fa fa-check-circle text-accent mt-1 mr-3"></i><span>1.2m高浅橡木矮柜划分区域（不挡视线）</span></li>
+                                <li class="flex items-start"><i class="fa fa-check-circle text-accent mt-1 mr-3"></i><span>中央可升降舞台（演出升起，其他时段隐藏）</span></li>
+                                <li class="flex items-start"><i class="fa fa-check-circle text-accent mt-1 mr-3"></i><span>角落细叶芦苇装饰（仅2-3处，不杂乱）</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 包厢 -->
+                <div>
+                    <h3 class="text-2xl font-semibold text-primary mb-6">包厢：半开放不压抑</h3>
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <img src="https://i.ibb.co/WWy0qq76/20250908135932.jpg" alt="包厢效果" class="w-full h-auto rounded-lg shadow-lg">
+                        <div class="bg-white p-6 rounded-lg shadow-lg">
+                            <h4 class="font-semibold text-lg mb-3">设计亮点</h4>
+                            <ul class="space-y-4 mb-6">
+                                <li class="flex items-start"><i class="fa fa-check-circle text-accent mt-1 mr-3"></i><span>隔断：1.2m浅灰矮墙+超白磨砂玻璃（雾度60%）</span></li>
+                                <li class="flex items-start"><i class="fa fa-check-circle text-accent mt-1 mr-3"></i><span>配置：浅橡木沙发（坐深≥65cm）+单人吊灯</span></li>
+                                <li class="flex items-start"><i class="fa fa-check-circle text-accent mt-1 mr-3"></i><span>声学：墙面吸音板+顶部扩散体，保证私密</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 材质色彩（嵌入材质图，保留V4风格） -->
+        <section id="materials" class="mb-24 scroll-mt-20">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold">材质·色彩·光影系统</h2>
+                <div class="h-1.5 w-24 bg-accent my-4"></div>
+                
+                <!-- 核心材质（嵌入清晰材质图） -->
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                        <img src="https://i.ibb.co/k61RBLQS/1.jpg" alt="莱姆石材质" class="w-full h-48 object-cover">
+                        <div class="p-5">
+                            <h4 class="font-semibold mb-2">莱姆石（地面）</h4>
+                            <p class="text-sm text-dark/80 mb-2">西班牙进口，防水防污</p>
+                            <p class="text-sm font-medium text-accent">成本占比：30%</p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                        <img src="https://i.ibb.co/21fkGrfr/1.jpg" alt="哑光艺术漆" class="w-full h-48 object-cover">
+                        <div class="p-5">
+                            <h4 class="font-semibold mb-2">哑光艺术漆（墙面）</h4>
+                            <p class="text-sm text-dark/80 mb-2">浅灰色，含吸音颗粒</p>
+                            <p class="text-sm font-medium text-accent">成本占比：15%</p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                        <img src="https://i.ibb.co/Q7zz8WLB/8-1.jpg" alt="浅橡木材质" class="w-full h-48 object-cover">
+                        <div class="p-5">
+                            <h4 class="font-semibold mb-2">实木板</h4>
+                            <p class="text-sm text-dark/80 mb-2">实木板，碳化防潮</p>
+                            <p class="text-sm font-medium text-accent">成本占比：15%</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 体验细节（新增板块，嵌入体验图） -->
+        <section id="experience" class="mb-24 scroll-mt-20">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold">客户体验细节设计</h2>
+                <div class="h-1.5 w-24 bg-accent my-4"></div>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="feature-card overflow-hidden">
+                        <img src="https://i.ibb.co/Q7CCbj6m/1.jpg" alt="座椅舒适度" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-lg font-semibold text-primary mb-3">座椅舒适度</h3>
+                            <ul class="space-y-2">
+                                <li class="flex items-start"><i class="fa fa-check-circle text-accent mt-1 mr-3"></i><span>坐深≥45-50cm，靠背倾斜105°</span></li>
+                                <li class="flex items-start"><i class="fa fa-check-circle text-accent mt-1 mr-3"></i><span>45D高密度海绵，久坐不塌陷</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="feature-card overflow-hidden">
+                        <img src="https://i.ibb.co/C3kjg7kS/20250908153234.jpg" alt="声学环境" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-lg font-semibold text-primary mb-3">声学环境</h3>
+                            <ul class="space-y-2">
+                                <li class="flex items-start"><i class="fa fa-check-circle text-accent mt-1 mr-3"></i><span>私厨≤40dB，静吧≤45dB</span></li>
+                                <li class="flex items-start"><i class="fa fa-check-circle text-accent mt-1 mr-3"></i><span>包厢3cm空气隔音层</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="feature-card overflow-hidden">
+                        <img src="https://i.ibb.co/GXGgN4d/20250908153314.jpg" alt="温度系统" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-lg font-semibold text-primary mb-3">温度与新风</h3>
+                            <ul class="space-y-2">
+                                <li class="flex items-start"><i class="fa fa-check-circle text-accent mt-1 mr-3"></i><span>分区空调，独立控温</span></li>
+                                <li class="flex items-start"><i class="fa fa-check-circle text-accent mt-1 mr-3"></i><span>每小时换气2次，空气清新</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="feature-card overflow-hidden">
+                        <img src="https://i.ibb.co/MjFZxDV/20250908135934.jpg" alt="服务体验" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-lg font-semibold text-primary mb-3">服务体验</h3>
+                            <ul class="space-y-2">
+                                <li class="flex items-start"><i class="fa fa-check-circle text-accent mt-1 mr-3"></i><span>包厢配服务铃，避免打扰</span></li>
+                                <li class="flex items-start"><i class="fa fa-check-circle text-accent mt-1 mr-3"></i><span>服务员动线在视线外</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 效果总结（多嵌图片，清晰可见） -->
+        <section id="summary" class="scroll-mt-20">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold">效果预想与核心总结</h2>
+                <div class="h-1.5 w-24 bg-accent my-4"></div>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="space-y-6">
+                        <img src="https://i.ibb.co/RTTGyVRz/20250908135929.jpg" alt="整体效果1" class="summary-img">
+                        <img src="https://i.ibb.co/MjFZxDV/20250908135934.jpg" alt="整体效果2" class="summary-img">
+                        <img src="https://i.ibb.co/FLWq1d1x/202509081359271.jpg" alt="光影效果" class="summary-img">
+                        <img src="https://i.ibb.co/V05DP938/202509081359321.jpg" alt="包厢细节" class="summary-img">
+                    </div>
+                    <div class="bg-white p-8 rounded-lg shadow-lg">
+                        <h3 class="text-xl font-semibold text-primary mb-6">客户体验动线</h3>
+                        <div class="space-y-6">
+                            <div class="flex">
+                                <div class="w-10 h-10 bg-accent/10 rounded-full flex items-center justify-center text-accent mr-4 flex-shrink-0">
+                                    <i class="fa fa-sign-in"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold mb-1">进门显静奢</h4>
+                                    <p class="text-dark/80">格栅+微弧接待台，传递高级素雅质感</p>
+                                </div>
+                            </div>
+                            <div class="flex">
+                                <div class="w-10 h-10 bg-accent/10 rounded-full flex items-center justify-center text-accent mr-4 flex-shrink-0">
+                                    <i class="fa fa-coffee"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold mb-1">入座感松弛</h4>
+                                    <p class="text-dark/80">宽沙发+柔光环境，舒适可久坐</p>
+                                </div>
+                            </div>
+                            <div class="flex">
+                                <div class="w-10 h-10 bg-accent/10 rounded-full flex items-center justify-center text-accent mr-4 flex-shrink-0">
+                                    <i class="fa fa-glass"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold mb-1">小酌有格调</h4>
+                                    <p class="text-dark/80">氛围灯光+背景音乐，轻松社交</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚（保留V4样式） -->
+    <footer class="bg-dark text-light py-12">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-2xl font-bold mb-4 text-secondary">张掖山海泊啤汇</h2>
+                <p class="mb-6 text-light/80 max-w-2xl mx-auto">以素雅之形，承西北之韵——打造张掖地区独具特色的高级餐饮空间</p>
+                <div class="text-light/60 text-sm">
+                    设计团队对接人：[设计师·老郭] | 电话：[18189369622] | 微信：[18189369622]
+                </div>
+                <div class="text-light/40 text-sm mt-4">
+                    © 2025 张掖山海泊啤汇改造高级素雅空间设计方案. 保留所有权利.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 回到顶部按钮（保留V4功能） -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-accent text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg opacity-0 invisible transition-custom z-50">
+        <i class="fa fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // 移动端菜单
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+        
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', e => {
+                e.preventDefault();
+                const target = document.querySelector(anchor.getAttribute('href'));
+                if (target) window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
+                if (!mobileMenu.classList.contains('hidden')) mobileMenu.classList.add('hidden');
+            });
+        });
+        
+        // 导航栏+回到顶部
+        const navbar = document.getElementById('navbar');
+        const backToTop = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            // 导航栏样式
+            if (window.scrollY > 100) {
+                navbar.classList.add('py-2', 'shadow-md');
+                navbar.classList.remove('py-3');
+            } else {
+                navbar.classList.add('py-3');
+                navbar.classList.remove('py-2', 'shadow-md');
+            }
+            // 回到顶部显示
+            if (window.scrollY > 500) {
+                backToTop.classList.remove('opacity-0', 'invisible');
+                backToTop.classList.add('opacity-100', 'visible');
+            } else {
+                backToTop.classList.add('opacity-0', 'invisible');
+                backToTop.classList.remove('opacity-100', 'visible');
+            }
+        });
+        
+        // 回到顶部功能
+        backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    </script>
+</body>
+</html>
